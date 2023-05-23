@@ -2,6 +2,7 @@ html, body {
   background: black no-repeat center;
   background-image: url(./images/futuristic-sci-fi-space-tunnel-passageway-with-glowing-shiny-lights.jpg);
   background-size: cover;
+  background-attachment: fixed;
   min-height: 100vh;
   color: white;
 }

@@ -1,0 +1,57 @@
+.spacer {
+  height: 82px;
+}
+
+.inputContainer {
+  position: fixed;
+  bottom: 20px;
+  left: 40px;
+  right: 40px;
+  text-align: center;
+  // je moet allicht een placeholder gebruiken als eerder zodat we extra ruimte hebben onder
+  
+ 
+form {
+    display: flex;
+    justify-content: center;
+    column-gap: 5px
+    
+  }
+}
+
+.input {
+  line-height:40px;
+  background-color: rgba(255, 255, 255, 0.80);
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.user {
+  width: 20%;
+}
+
+.message {
+  width: 60%
+  
+}
+
+
+.submit {
+  outline: none;
+  border: none;
+  background: none;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.3;
+  }
+}
+

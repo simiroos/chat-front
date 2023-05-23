@@ -1,3 +1,14 @@
+.spacer {
+  height: 100px;
+};
+
+.container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+}
+
 .header {
   max-width: 960px;
   margin: 0 auto;
