@@ -1,0 +1,28 @@
+.header {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px 20px 40px 20px;
+  color: black;
+}
+
+.group {
+  line-height: 40px;
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0 10px;
+}
+
+.share {
+ background: none;
+ outline: none;
+ border: none;
+ cursor: pointer;
+
+ &:hover {
+  opacity: 0.8;
+ }
+}

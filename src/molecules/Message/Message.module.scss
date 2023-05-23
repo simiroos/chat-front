@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+  &.self {
+    flex-direction: row-reverse;
+  }
+}
+
+.picture {
+  padding-right: 10px;
+
+  .self & {
+    padding-right: 0;
+    padding-left: 10px;
+  }
+}
+
+.contentContainer {
+  .self & {
+    text-align: right;
+  }
+}
+
+.name {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-bottom: 5px;
+  background-color: #FFFFFF; 
+  color: black; 
+  -webkit-border-radius: 10px 10px 10px 0;
+  border-radius: 10px 10px 10px 0;
+
+  .self & {
+    -webkit-border-radius: 10px 10px 0 10px;
+    border-radius: 10px 10px 0 10px;
+  }
+  
+}
+
+.message {
+  padding: 5px 10px;
+  margin-bottom: 5px; 
+  background-color: rgba(255, 255, 255, 0.75);
+  color: black;
+  -webkit-border-radius: 0 10px 10px 10px;
+  border-radius: 0 10px 10px 10px;
+
+  .self & {
+    -webkit-border-radius: 10px 0 10px 10px;
+    border-radius: 10px 0 10px 10px;
+  }
+
+}
