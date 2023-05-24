@@ -1,10 +1,10 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
+import { MessageInBackend, MessageInFrontend, getMessages } from '~repositories/message';
 import Header from '../molecules/Header/Header';
 import './reset.css';
 import './App.module.scss';
 import ChatView from '../organisms/ChatView/ChatView';
 import SendBox from '../organisms/SendBox/SendBox';
-import { MessageInBackend, MessageInFrontend, getMessages } from '~repositories/message';
 
 function App() {
   const [messages, setMessages] = useState<MessageInFrontend[]>([]);
