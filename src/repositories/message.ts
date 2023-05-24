@@ -15,7 +15,7 @@ const failed = [{ username: 'system', body: 'något gick fel :(', id: 'failure' 
 
 export const getMessages = async () => {
   try {
-    const response = await fetch('http://localhost:4001/api/messages');
+    const response = await fetch('https://simeon-back.hendrikpeter.net/api/messages');
     if (response.status !== 200) return failed;
 
     const body: MessageInBackend[] = await response.json();
@@ -28,7 +28,7 @@ export const getMessages = async () => {
 
 export const createMessage = async (message: { username: string; body: string }) => {
   try {
-    const response = await fetch('http://localhost:4001/api/messages', {
+    const response = await fetch('https://simeon-back.hendrikpeter.net/api/messages', {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message }),
