@@ -1,17 +1,14 @@
+import { MessageInFrontend } from '~repositories/message';
 import style from './Message.module.scss';
 import image from './images/user.svg';
 
 interface IMessageProps {
-  message: {
-    from: string;
-    message: string;
-    self: boolean;
-  };
+  message: MessageInFrontend;
 }
 
 export default function Message(props: IMessageProps) {
   const {
-    message: { from, message, self },
+    message: { username, body, self },
   } = props;
 
   return (
@@ -23,8 +20,8 @@ export default function Message(props: IMessageProps) {
         />
       </div>
       <div className={style.contentContainer}>
-        <div className={style.name}>{from}</div>
-        <div className={style.message}>{message}</div>
+        <div className={style.name}>{username}</div>
+        <div className={style.message}>{body}</div>
       </div>
     </div>
   );

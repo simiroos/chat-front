@@ -1,24 +1,31 @@
 import { useRef, useState } from 'react';
+import { MessageInBackend, createMessage } from '~repositories/message';
 import style from './SendBox.module.scss';
 import send from './images/send.svg';
 
-export default function SendBox() {
+interface SendBoxProps {
+  setMessages: (messages: MessageInBackend[]) => void;
+  userName: string;
+  setUserName: (newName: string) => void;
+}
+
+export default function SendBox(props: SendBoxProps) {
+  const { userName, setUserName, setMessages } = props;
+
   const [disabled, setDisabled] = useState(false);
-  const [user, setUser] = useState('');
   const [message, setMessage] = useState('');
 
   const inputRef = useRef<HTMLInputElement>(null);
 
   const submit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (user.length < 2) return;
+    if (userName.length < 2) return;
     if (message.length < 1) return;
 
     const sendMessage = async () => {
       setDisabled(true);
-      await new Promise((resolve) => {
-        setTimeout(resolve, 1000);
-      });
+      const newMessages = await createMessage({ username: userName, body: message });
+      setMessages(newMessages);
 
       setMessage('');
       setDisabled(false);
@@ -37,8 +44,8 @@ export default function SendBox() {
             disabled={disabled}
             className={`${style.input} ${style.user}`}
             type="text"
-            value={user}
-            onChange={(event) => setUser(event.target.value)}
+            value={userName}
+            onChange={(event) => setUserName(event.target.value)}
             placeholder="User name"
           />
           <input
@@ -52,7 +59,7 @@ export default function SendBox() {
           />
           <button
             className={style.submit}
-            disabled={disabled || user.length < 2 || message.length < 1}
+            disabled={disabled || userName.length < 2 || message.length < 1}
             type="submit"
             value="Send"
           >
